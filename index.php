@@ -4,14 +4,7 @@ header('Content-Type: text/html; charset=utf-8');
 
 require('class/class_sys.php');
 $class_sys = new sys();
-require('class/class_recettes.php');
-$class_recette = new recette();
-require('class/class_ingredient.php');
-$class_ingredient = new ingredient();
-require('class/class_recette_ingredients.php');
-$class_recette_ingredients = new recette_ingredients();
 
-//$class_sys->debugAll();
 $titre = "Tableau de bord";
 $datejour = date("d/m/Y");
 $valider = true;
@@ -19,12 +12,10 @@ if (!isset($_SESSION['tricb']))
     $_SESSION['tricb'] = "recette";
 
 if (isset($_POST['valider'])) {
-//    $class_sys->debugVar($_POST);
     $_SESSION['recette'] = "";
     $_SESSION['sel_ingredients'] = array();
 
     foreach ($_POST AS $k => $post) {
-//        echo $k . " - " . $post . "<br>";
         if (substr($k, 0, 16) == "sel_ingredients_") {
             $_SESSION['sel_ingredients'][$post] = (int) $post;
         }
@@ -43,7 +34,6 @@ if (isset($_POST['valider'])) {
     $_SESSION['type_sel'] = "A";
     $_SESSION['sel_ingredients'] = array();
 }
-//$class_sys->debugVar($_SESSION);
 ?>
 <!doctype html>
 <html>
