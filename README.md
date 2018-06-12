@@ -1,2 +1,0 @@
-# Exercice-OpenClassroom
-Exercice
